@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const userRouter = require('./routes/user.route')
 const {getUserDetails} = require('./controllers/user.controller.js')
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/user/:userid',getUserDetails)
